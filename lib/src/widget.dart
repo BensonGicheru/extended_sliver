@@ -367,11 +367,11 @@ class _ExtendedSliverAppbarDelegate
         mainAxisAlignment: mainAxisAlignment,
         crossAxisAlignment: crossAxisAlignment,
         children: <Widget>[
-          leading ??
-              const BackButton(
-                onPressed: null,
-              ),
-          titleWidget,
+          if(leading != null)
+            leading!,
+          Expanded(
+              child: titleWidget
+          ),
           actions ?? Container(),
         ],
       ),
