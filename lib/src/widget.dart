@@ -372,7 +372,8 @@ class _ExtendedSliverAppbarDelegate
           Expanded(
               child: titleWidget
           ),
-          actions ?? Container(),
+          if(actions != null)
+            actions!,
         ],
       ),
     );
@@ -382,7 +383,13 @@ class _ExtendedSliverAppbarDelegate
         child: Stack(
           children: <Widget>[
             Positioned(
-              child: maxExtentProtoType,
+              child: Row(
+                mainAxisAlignment: mainAxisAlignment,
+                crossAxisAlignment: crossAxisAlignment,
+                children: <Widget>[
+                  Expanded(child: maxExtentProtoType)
+                ],
+              ),
               top: -shrinkOffset,
               bottom: 0,
               left: 0,
